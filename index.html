@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebChip8</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <canvas id="chip8-canvas" width="256" height="128" tabindex="1"></canvas>
+    <form id="rom-loader">
+      <input type="file" id="rom-file">
+      <button type="submit" id="rom-loader-btn">Load</button>
+    </form>
+    <div class="color-red d-none" id="errors"></div>
+    <audio src="/media/beep.wav" preload="auto" id="beep-audio">The sound is not supported by your browser.</audio>
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
