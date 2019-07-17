@@ -41,11 +41,11 @@ export default class Emulator {
     this.superRoutines = [];
     this.shouldDraw = false;
     this.keys = new Array(16).fill(false);
-    this.ram = new Array(4096).fill(0);
-    this.registers = new Array(16).fill(0);
+    this.ram = new Uint8Array(4096).fill(0);
+    this.registers = new Uint8Array(16).fill(0);
     this.matrix = [];
     for (let i = 0; i < config.width; ++i) {
-      this.matrix.push(new Array(config.height).fill(0));
+      this.matrix.push(new Uint8Array(config.height).fill(0));
     }
     const array8 = new Uint8Array(this.buffer);
     array8.forEach((val, index) => {
@@ -117,7 +117,6 @@ export default class Emulator {
   registerKeyboardEvents() {
     this.canvas.addEventListener('keydown', (event) => {
       event.preventDefault();
-      console.log(event);
       this.blocked = false;
       const key = this.keyToKeyboard(event.keyCode);
       this.unblockKey = key;
@@ -138,7 +137,7 @@ export default class Emulator {
   clear() {
     this.matrix = [];
     for (let i = 0; i < config.width; ++i) {
-      this.matrix.push(new Array(config.height).fill(0));
+      this.matrix.push(new Uint8Array(config.height).fill(0));
     }
     this.shouldDraw = true;
   }
