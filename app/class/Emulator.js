@@ -171,7 +171,6 @@ export default class Emulator {
       }
     }
 
-    // console.log(this.matrix);
     this.shouldDraw = false;
   }
 
@@ -359,11 +358,8 @@ export default class Emulator {
               if (pixel && currentPixel) {
                 this.registers[0xF] = 1;
               }
-              // console.log(currentPixel ^ (pixel) ? 1 : 0);
               this.matrix[x][y] ^= (pixel ? 1 : 0);
             }
-
-            // console.log(this.matrix[startX][startY]);
           }
           this.shouldDraw = true;
         })();
